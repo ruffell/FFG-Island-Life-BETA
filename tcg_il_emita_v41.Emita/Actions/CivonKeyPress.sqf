@@ -66,10 +66,8 @@ switch _key do
 	
 	_vcls = nearestobjects [getposatl player, ["LandVehicle", "Air", "ship"], 7];
 	_vcl = _vcls select 0;
-	diag_log "Did this?";
 	if(!(_vcl in INV_VehicleArray))exitwith{player groupchat "You do not have the keys to this vehicle.";_handled=true;};
 	["schluessel", _vcl, 0] call keys_schuss;
-	diag_log "but not this?";
 	_handled=true;
 	
 	};
