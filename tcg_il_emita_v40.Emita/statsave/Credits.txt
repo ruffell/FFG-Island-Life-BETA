@@ -1,2 +1,0 @@
-Massive credits to firefly2442 for creating arma2mysql, also massive credits to Scott_NZ for creating arma2net.
-Most of the code is written by myself (Linnet), again thanks a lot to firefly2442 without his example mission & code this wouldn't have been possible!
