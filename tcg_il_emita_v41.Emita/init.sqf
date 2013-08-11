@@ -3,7 +3,8 @@
 //      Copyright © TCG         //
 //www.tcgaming.enjin.com       //
 ////////////////////////////////
-
+CBA_display_ingame_warnings = false;
+publicVariable "CBA_display_ingame_warnings"; 
 if (isServer) then 
 {
 mafiamembers = [];
