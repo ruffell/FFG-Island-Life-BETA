@@ -6,7 +6,11 @@ Save_new =
 _puid  		= getplayeruid (_this select 0);
 _pname 		= name (_this select 0);
 _side 		= side (_this select 0);
-_query = format ["INSERT into users (uid, name, side, bank, inventory, license, streetrep, vehicle) VALUES('%1', '%2', '%4', '%3', '%3', '%3', '%3', '[]')", _puid, _pname, 0, _side];
+_konto 		= _this select 1;
+_inventory 	= _this select 2;
+_license	= _this select 3;
+_rep 		= _this select 4;
+_query = format ["INSERT into users (uid, name, side, bank, inventory, license, streetrep, vehicle) VALUES('%1', '%2', '%3', '%4', '%5', '%6', '%7', '[]')", _puid, _pname, _side, _konto, _inventory, _license, _rep];
 while{!isNil("serverRunningQuery") && serverRunningQuery} do { //busy wait
 		};
 		serverRunningQuery = true;
@@ -18,7 +22,7 @@ while{!isNil("serverRunningQuery") && serverRunningQuery} do { //busy wait
 			{
 				_return = nil;
 			};
-			diag_log format ["Called new save once (Player:%1)", _pname];
+			diag_log "Called new save once";
 			sleep 0.5;  //sleep for a half-second so we don't thrash the server with callExtension calls
 		};
 		serverRunningQuery = false;
@@ -53,7 +57,7 @@ _return = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommandAsync 
 			{
 				_return = nil;
 			};
-			diag_log format ["Called saving once (Player:%1)", _pname];
+			diag_log "Called Saving once";
 			sleep 0.5;  //sleep for a half-second so we don't thrash the server with callExtension calls
 		};
 		serverRunningQuery = false;
@@ -87,7 +91,7 @@ _return = "Arma2Net.Unmanaged" callExtension format ["Arma2NETMySQLCommandAsync 
 			{
 				_return = nil;
 			};
-			diag_log format ["Called saving (No car) (Player:%1)", _pname];
+			diag_log "Called Saving (No car) once";
 			sleep 0.5;  //sleep for a half-second so we don't thrash the server with callExtension calls
 		};
 		serverRunningQuery = false;
@@ -111,7 +115,7 @@ while{!isNil("serverRunningQuery") && serverRunningQuery} do { //busy wait
 		if (_get == "") then {
 				_get = nil;
 			};
-			diag_log format ["Called Loading (Player:%1) gave: %2", _pname, _get];
+			diag_log "Called Loading once";
 			sleep 0.5;  //sleep for a half-second so we don't thrash the server with callExtension calls
 		};
 		serverRunningQuery = false;

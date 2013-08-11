@@ -1,27 +1,28 @@
+startLoadingScreen["" , "loading_loadingScreen"];
+startLoadingScreen ["Loading Stats", "loading_loadingScreen"];
 disableUserInput true;
-startLoadingScreen ["Loading Stats Functions", "loading_loadingScreen"];
-progressLoadingScreen 0;
 ReturnedDatabaseLoadOuts = nil;
 //Call the event to load profile.
-uisleep 5;
-startLoadingScreen ["Searching database for player save", "loading_loadingScreen"];
-uisleep 2;
+progressLoadingScreen 0.1;
+uisleep 10;
 [player] call l_profile;
 
 //Just to make sure everything keeps up.
 
 waitUntil{!isNil("ReturnedDatabaseLoadOuts")};
+
 //If you get something returned to you, you have a profile, else you aint got nothin' pal so we better create something for you.
 
 //This will exit if you got returned false (You don't have a profile) and create a profile for you.
+progressLoadingScreen 0.5;
 if (count (ReturnedDatabaseLoadOuts) == 0) exitwith
 {
 			startLoadingScreen ["No profile found, creating a new profile!", "loading_loadingScreen"];
-			[player] call s_newsave;
-			[] call setdefaults;
 			_inventory = [INV_InventarArray] call inv_to_string;
-			[player, kontostand, _inventory, INV_LizenzOwner, streetrep] call s_save_stats;
+			[player, kontostand, _inventory, INV_LizenzOwner, streetrep] call s_newsave;
+			[] call setdefaults;
 			ReturnedDatabaseLoadOuts = 0;
+			progressLoadingScreen 0.8;
 			uisleep 2;
 			endLoadingScreen;
 			disableUserInput false;
@@ -29,6 +30,7 @@ if (count (ReturnedDatabaseLoadOuts) == 0) exitwith
 };
 startLoadingScreen ["Profile Found!", "loading_loadingScreen"];
 //Because you had a profile lets load it!
+progressLoadingScreen 0.8;
 uisleep 2;
 	_get = ReturnedDatabaseLoadOuts;
 	_newinv = [_get] call combine_inv;
