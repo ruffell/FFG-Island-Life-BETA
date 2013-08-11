@@ -112,7 +112,7 @@ if ((alive player) and (DeadWaitSec > (respawnzeit+deadtimebonus))) then
 		};
 		};
 
-money_limit = {
+money_limit_loop = {
 	_geld = 'geld' call INV_GetItemAmount;
 	if (_geld < 0) then {['geld', 0] call INV_SetItemAmount; _geld = 0;};
 	if (Kontostand > bank_limit) then {Kontostand = bank_limit;player groupChat localize "STRS_maxbank";};
@@ -162,7 +162,7 @@ client_loop = {
 	while {_client_loop_i < 5000} do {
 		if(iscop and alive player and weaponsloaded)then {call cop_weapon_check;};		
 		call dead_time_loop;
-		call money_limit;
+		call money_limit_loop;
 		call player_array_loop;
 		call debug_loop;
 		call hud_loop;
