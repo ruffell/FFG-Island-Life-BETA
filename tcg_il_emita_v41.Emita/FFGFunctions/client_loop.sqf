@@ -116,7 +116,7 @@ money_limit_loop = {
 	_geld = 'geld' call INV_GetItemAmount;
 	if (_geld < 0) then {['geld', 0] call INV_SetItemAmount; _geld = 0;};
 	if (Kontostand > bank_limit) then {Kontostand = bank_limit;player groupChat localize "STRS_maxbank";};
-	if (_geld > _money_limit) then {['geld', money_limit] call INV_SetItemAmount; player groupChat localize "STRS_maxmoney";};
+	if (_geld > money_limit) then {['geld', money_limit] call INV_SetItemAmount; player groupChat localize "STRS_maxmoney";};
 	};
 
 player_array_loop = {
