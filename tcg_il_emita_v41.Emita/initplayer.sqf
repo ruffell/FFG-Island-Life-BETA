@@ -55,4 +55,4 @@ waitUntil {JIP_Stats_Ready};
 
 if (local_arrest == 1) then {player switchmove "civillying01"; waituntil {animationstate player == "civillying01"}; ["arrest", 20, player] execVM "civmenu.sqf";};
 if (isdead == 1 and isciv) then {player setpos getpos deadcamlogic;[] execVM "rejoincamera.sqf";};
-if(time > 20)then{skiptime (currentTime - daytime)};
+//if(time > 20)then{skiptime (currentTime - daytime)};
