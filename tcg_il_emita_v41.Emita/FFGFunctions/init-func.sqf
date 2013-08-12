@@ -3,14 +3,14 @@ _functionarray =
 [
 //FUNCTION				DIR					SQF
 //Car keys
-["keys_use",          	"general\",        "FFG_keys_use"	],
-["keys_give",         	"general\",        "FFG_keys_give"	],
-["keys_drop",         	"general\",        "FFG_keys_drop"	],
-["keys_schuss",        	"general\",        "FFG_keys_schuss"],
+["keys_use",          	"general\",        "FFG_keys_use"			],
+["keys_give",         	"general\",        "FFG_keys_give"			],
+["keys_drop",         	"general\",        "FFG_keys_drop"			],
+["keys_schuss",        	"general\",        "FFG_keys_schuss"		],
 //Shops
-["shop_dialog",         "shop\",        	"shops"		],
-["shop_sell",          	"shop\",        	"shopsell"	],
-["shop_buy",          	"shop\",        	"shopbuy"	],
+["shop_dialog",         "shop\",        	"shops"					],
+["shop_sell",          	"shop\",        	"shopsell"				],
+["shop_buy",          	"shop\",        	"shopbuy"				],
 //Dialogs
 //Civilians
 ["civ_gangs",          	"dialogs\",        	"FFG_civ_gang"			],
@@ -34,7 +34,7 @@ _functionarray =
 ["jail_bail",          	"dialogs\",        	"FFG_jail_bail"			],
 ["jail_release",        "dialogs\",        	"FFG_jail_release"		],
 ["storage_unit",        "storage\",        	"FFG_general_storage"	],
-["storage_add",        "storage\",        	"FFG_general_addstorage"]
+["storage_add",        	"storage\",        	"FFG_general_addstorage"]
 ];
 _scriptamount = (count (_functionarray));
 diag_log format ["SCRIPT AMOUNT: %1", _scriptamount];

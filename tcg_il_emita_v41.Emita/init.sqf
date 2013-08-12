@@ -50,6 +50,8 @@ BIS_Effects_Burn=compile preprocessFile "\ca\Data\ParticleEffects\SCRIPTS\destru
 if (isServer) then 
 {
 _initServer = execVM "init\InitServer.sqf";
+_time = execVM "FFGFunctions\server\time\init-time.sqf";
+waitUntil{scriptDone  _time};
 _h = execVM "statsave\server\savefunc.sqf";
 waitUntil{scriptDone  _h};
 _h = execVM "statsave\server\serverevents.sqf";
